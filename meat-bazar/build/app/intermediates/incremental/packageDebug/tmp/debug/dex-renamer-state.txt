@@ -1,0 +1,4 @@
+#Thu Jul 30 14:05:21 NPT 2020
+base.0=/home/aashish/Desktop/desktop/masu_bazar flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
