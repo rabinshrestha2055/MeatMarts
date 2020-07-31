@@ -16,7 +16,8 @@ class HomeButton extends StatelessWidget {
         borderOnForeground: true,
         elevation: 8.0,
         child: Container(
-       height: 200,
+         
+           height: MediaQuery.of(context).size.height/2.8,
        child: Carousel(
       boxFit: BoxFit.fill,
       images:[
@@ -35,10 +36,10 @@ class HomeButton extends StatelessWidget {
     ),
     
        Container(
+       color: Colors.yellow,
+         height: MediaQuery.of(context).size.height/1.97,
          
-         height:290,
-         
-          child: CategoryList(),
+         child: CategoryList(),
        ),
   
       ],

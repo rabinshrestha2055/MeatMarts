@@ -21,7 +21,10 @@ class Setting extends StatelessWidget {
           
         ],
           ),
-          body: Center(child: Text("Setting"),),
+          body: Container(
+            color: Colors.green,
+            height: MediaQuery.of(context).size.height,
+            child: Center(child: Text("Setting"),)),
     );
   }
 }

@@ -110,7 +110,7 @@ class MeatCategoryNameList extends StatelessWidget {
            boxShadow: [
             BoxShadow(
                color: Colors.black26,
-               offset: Offset(2.0,5.0)
+               offset: Offset(0.0,1.0)
             ),
            ]
           ),
@@ -134,7 +134,7 @@ class MeatCategoryNameList extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.transparent,
-               offset: Offset(2.0,3.0)
+               offset: Offset(0.0,1.0)
             ),
           ]
         ),

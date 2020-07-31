@@ -19,7 +19,7 @@ class MeatShopButton extends StatelessWidget {
         borderOnForeground: true,
         elevation: 8.0,
         child: Container(
-       height: 210,
+       height: MediaQuery.of(context).size.height/2.8,
        child: Carousel(
       boxFit: BoxFit.fill,
       images:[
@@ -40,7 +40,7 @@ class MeatShopButton extends StatelessWidget {
     
        Container(
          padding: EdgeInsets.symmetric(vertical: 5.0),
-         height: 290,
+         height: MediaQuery.of(context).size.height/1.97,
        child: MeatCatList(),
        ),
      
