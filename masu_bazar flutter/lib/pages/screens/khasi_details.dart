@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/pages/screens/appbar.dart';
 class Details extends StatefulWidget {
   final title_details;
   final description_details;
@@ -9,9 +10,13 @@ class Details extends StatefulWidget {
   final weight_details;
   final date_details;
   final age_details;
-  final number_details;
+  final pnumber_details;
+  final snumber_details;
+  final color_details;
+  final daat_details;
 
-  const Details({Key key, this.title_details, this.description_details, this.image_details, this.name_details, this.price_details, this.location_details, this.weight_details, this.date_details, this.age_details, this.number_details}) : super(key: key);
+
+   Details({Key key, this.title_details, this.description_details, this.image_details, this.name_details, this.price_details, this.location_details, this.weight_details, this.date_details, this.age_details,  this.pnumber_details, this.snumber_details, this.color_details, this.daat_details}) : super(key: key);
   
   @override
   _DetailsState createState() => _DetailsState();
@@ -23,44 +28,26 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-     elevation: 1.0,
-     backgroundColor: Colors.orange,
-        title: Text(widget.title_details,style: TextStyle(color: Colors.black87),),
-           actions: [
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search,color: Colors.black54,),),
-          Padding(
-            padding:  EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 20.0,
-              backgroundColor: Colors.orange,
-              child: Image( image: AssetImage('assets/images/logo1.png'),fit: BoxFit.fill,)),
-          ),
-           ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      appBar: appBar(widget.title_details),
+      body: ListView(
         children: <Widget>[
-           Container(
-            margin: EdgeInsets.only(left:6.0),
-           height: MediaQuery.of(context).size.width*0.5,
-          
-           child: Card(
-             borderOnForeground: true,
-             elevation: 1.0,
-             clipBehavior: Clip.antiAlias,
-             child: Image(image: AssetImage(widget.image_details),alignment: Alignment.topCenter,)),
-             ),
+           Padding(
+             padding: EdgeInsets.only(left:8.0,right:8.0 ),
+             child: Card(
+               borderOnForeground: true,
+               elevation: 5.0,
+               clipBehavior: Clip.antiAlias,
+               child: Image(image: AssetImage(widget.image_details),alignment: Alignment.topCenter,width: 300,height: 250,fit: BoxFit.contain,)),
+           ),
+             
              Row(
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
                  Container(
-                   padding: EdgeInsets.only(top: 13.0,left: 45.0),
+                   padding: EdgeInsets.only(top: 13.0,left: 40.0),
                    height: 50,
                    width: 150.5,
-                   child: Text('Weight = '+widget.weight_details,style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+                   child: Text('Weight = '+widget.weight_details.toString()+" kg",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
                    margin: EdgeInsets.only(left: 5.0),
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.only(topLeft:Radius.circular(10.0) ,bottomLeft: Radius.circular(10.0)),
@@ -92,7 +79,7 @@ class _DetailsState extends State<Details> {
                    ),
                    height: 50,
                    width: 150.5,
-                   child: Text('Rs.'+widget.price_details,style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+                   child: Text('Rs.'+widget.price_details.toString(),style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
                  ),
                ],
              ),
@@ -105,7 +92,7 @@ class _DetailsState extends State<Details> {
                  boxShadow: [
                    BoxShadow(
                      color: Colors.black26,
-                     offset: Offset(0.0,2.0),
+                     offset: Offset(0.0,1.0),
                    )
                  ]
                ),
@@ -118,7 +105,7 @@ class _DetailsState extends State<Details> {
                      padding:  EdgeInsets.only(left: 8.0,top: 8.0),
                      child: Text('Description :',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
                    ),
-                   Divider(color: Colors.black,thickness: 2.0,),
+                   Divider(color: Colors.black26,thickness: 2,),
                    Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
                      child: Text(widget.description_details,style: TextStyle(fontWeight: FontWeight.w500)),
@@ -149,26 +136,38 @@ class _DetailsState extends State<Details> {
                      padding:  EdgeInsets.only(left: 8.0,top: 8.0),
                      child: Text('Seller Information :',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
                    ),
-                   Divider(color: Colors.black,thickness: 2.0,),
+                   Divider(color: Colors.black26,thickness: 2.0,),
                    Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
                      child: Text("Seller Name : "+widget.name_details,style: TextStyle(fontWeight: FontWeight.w500),),
                    ),
                       Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
-                     child: Text("Location : "+widget.location_details,style: TextStyle(fontWeight: FontWeight.w500)),
+                     child: Text("Address : "+widget.location_details,style: TextStyle(fontWeight: FontWeight.w500)),
                    ),
                       Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
-                     child: Text("Date : "+widget.date_details,style: TextStyle(fontWeight: FontWeight.w500)),
+                     child: Text("Date : "+widget.date_details.toString().split(" ")[0],style: TextStyle(fontWeight: FontWeight.w500)),
+                   ),
+                        Padding(
+                     padding:  EdgeInsets.only(left:8.0,right: 5.0),
+                     child: Text("Color : "+widget.color_details,style: TextStyle(fontWeight: FontWeight.w500)),
+                   ),
+                        Padding(
+                     padding:  EdgeInsets.only(left:8.0,right: 5.0),
+                     child: widget.daat_details==null?Container(): Text("Satiyako_Daat : "+widget.daat_details.toString(),style: TextStyle(fontWeight: FontWeight.w500)),
                    ),
                       Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
-                     child: Text("Age : "+widget.age_details,style: TextStyle(fontWeight: FontWeight.w500)),
+                     child:widget.age_details==null?Container(): Text("Age : "+widget.age_details.toString(),style: TextStyle(fontWeight: FontWeight.w500)),
                    ),
                       Padding(
                      padding:  EdgeInsets.only(left:8.0,right: 5.0),
-                     child: Text("Number : "+widget.name_details,style: TextStyle(fontWeight: FontWeight.w500)),
+                     child: Text("Primary_Number : "+widget.pnumber_details.toString(),style: TextStyle(fontWeight: FontWeight.w500)),
+                   ),
+                     Padding(
+                     padding:  EdgeInsets.only(left:8.0,right: 5.0),
+                     child: Text("Secondary_Number : "+widget.snumber_details.toString(),style: TextStyle(fontWeight: FontWeight.w500)),
                    ),
                    SizedBox(height: 5.0,)
                  ],

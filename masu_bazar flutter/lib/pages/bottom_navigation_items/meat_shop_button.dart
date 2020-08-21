@@ -38,10 +38,12 @@ class MeatShopButton extends StatelessWidget {
       ),
     ),
     
-       Container(
-         padding: EdgeInsets.symmetric(vertical: 5.0),
-         height: MediaQuery.of(context).size.height/1.97,
-       child: MeatCatList(),
+       Expanded(
+         child: Container(
+           padding: EdgeInsets.symmetric(vertical: 5.0),
+
+         child: MeatCatList(),
+         ),
        ),
      
       ],

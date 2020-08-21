@@ -35,11 +35,10 @@ class HomeButton extends StatelessWidget {
       ),
     ),
     
-       Container(
-       color: Colors.yellow,
-         height: MediaQuery.of(context).size.height/1.97,
-         
-         child: CategoryList(),
+       Expanded(
+      child: Container(
+       child: CategoryList(),
+         ),
        ),
   
       ],

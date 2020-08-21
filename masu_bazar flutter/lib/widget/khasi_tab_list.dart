@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/pages/screens/appbar.dart';
 import 'package:masu_bazar/pages/screens/boka_list.dart';
 import 'package:masu_bazar/pages/screens/khasi_list.dart';
 import 'package:masu_bazar/pages/screens/logout.dart';
@@ -24,30 +25,15 @@ class KhasiTabList extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
           
-          appBar:AppBar(
-            backgroundColor: Colors.orange,
-            elevation: 0.0,
-            title: Text(title,style: TextStyle(color: Colors.black87),),
-             actions: [
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search,color: Colors.black54,),),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Logout(),
-          ),
-          
-        ],
-          ),
-        
+          appBar:appBar(title),
          body: DefaultTabController(
            length: choices.length,
            child: Column(
              children: <Widget>[
                Container(
-                  
+                  margin: EdgeInsets.only(left: 0.5,right: 0.5),
                  constraints: BoxConstraints.expand(height:60),
-                 decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(5.0),
+                 decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
                   BoxShadow(

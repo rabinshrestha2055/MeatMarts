@@ -1,9 +1,11 @@
 
+import 'package:masu_bazar/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'khasi_model.dart';
 import 'package:http/http.dart' as http;
 String geturl="http://192.168.10.105:3000/khasiLists/get";
 String posturl="http://192.168.10.105:3000/khasiLists/post";
+String userposturl="http://192.168.10.105:3000/user/signup";
 String editurl="http://192.168.10.105:3000/khasiLists/";
 
  Future<List<KhasiModel>> getPosts()async{
@@ -31,6 +33,18 @@ String editurl="http://192.168.10.105:3000/khasiLists/";
   );
   return response;
  }
+ 
+  Future<http.Response> userDetaailsPost(UserModel userModel)async{
+    final headers = {
+     'content-type':'application/json',};
+  
+  final response=await http.post(userposturl,
+  headers: headers,
+  body: userModelToJson(userModel),
+  );
+  return response;
+ }
+
   Future<http.Response> updatePost(KhasiModel khasiModel)async{
     final headers = {'content-type':'application/json',};
   

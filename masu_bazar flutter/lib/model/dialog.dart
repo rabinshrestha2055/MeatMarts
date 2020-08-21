@@ -6,12 +6,12 @@ class Dialogs extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('Information'),
-      content: Text('Submit data sucessfully'),
+      content: Text('Data sucessfully submitted'),
       actions: [
             FlatButton(
           child: Text('Ok'),
           onPressed: () {
-            Navigator.of(context).pop(false);
+            Navigator.pop(context);
           },
           ),
       ],

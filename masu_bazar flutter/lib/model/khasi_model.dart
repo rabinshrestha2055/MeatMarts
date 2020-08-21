@@ -92,7 +92,6 @@ class KhasiModel {
     };
  @override
   String toString() {
-    // TODO: implement toString
     return 'KhasiModel{id:$id userId:$userId title: $title,category:$category,short_description:$shortDescription,estimated_weight: $estimatedWeight,price:$price,color:$color,daat:$daat,owner_name: $ownerName,address: $address,primary_contact_no: $primaryContactNo,secondary_contact_no:$secondaryContactNo,age:$age,khasiImage: $khasiImage,}';
   }
 } 

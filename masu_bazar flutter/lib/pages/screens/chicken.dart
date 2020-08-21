@@ -8,14 +8,7 @@ class ChickenList extends StatelessWidget {
     'assets/chicken_images/wings.jpeg',
     'assets/chicken_images/mince.jpg'
   ];
-  final List<String>_listText=[
-          'hlo',
-          'hi'
-          'bye'
-          'oh'
-          'yes'
-          'no'
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

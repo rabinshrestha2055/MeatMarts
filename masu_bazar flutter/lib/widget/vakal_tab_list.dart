@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/pages/screens/appbar.dart';
 
 class VakalTabList extends StatelessWidget {
   final title;
@@ -21,38 +22,21 @@ class VakalTabList extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
           
-          appBar:AppBar(
-            backgroundColor: Colors.orange,
-            elevation: 0.0,
-            title: Text(title,style: TextStyle(color: Colors.black87),),
-             actions: [
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search,color: Colors.black54,),),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 20.0,
-              backgroundColor: Colors.orange,
-              child: Image(image: AssetImage('assets/images/logo1.png'),)),
-          ),
-          
-        ],
-          ),
+          appBar:appBar(title),
         
          body: DefaultTabController(
            length: choices.length,
            child: Column(
              children: <Widget>[
                Container(
-                  
+                  margin: EdgeInsets.only(left: 0.5,right: 0.5),
                  constraints: BoxConstraints.expand(height:60),
-                 decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(5.0),
+                 decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
                   BoxShadow(
                      color: Colors.black26,
-                     offset: Offset(2.0,10.0)
+                     offset: Offset(1.0,1.0)
                   ),
                  ]
                 ),
