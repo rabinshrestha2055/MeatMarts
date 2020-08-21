@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/pages/screens/logout.dart';
+import 'package:masu_bazar/pages/screens/appbar.dart';
 import 'form_field.dart';
 class Forms extends StatelessWidget {
     final String id;
@@ -23,21 +23,7 @@ class Forms extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
        child: Scaffold(
-         appBar:AppBar(
-            backgroundColor: Colors.orange,
-            elevation: 0.0,
-            title: Text("Form",style: TextStyle(color: Colors.black87),),
-             actions: [
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search,color: Colors.black54,),),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Logout(),
-          ),
-          
-        ],
-          ),
+         appBar:appBar("Form"),
          body: SafeArea(
            child: FormFields(
              id: id,

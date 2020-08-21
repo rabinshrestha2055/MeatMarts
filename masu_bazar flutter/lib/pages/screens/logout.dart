@@ -21,7 +21,7 @@ class _LogoutState extends State<Logout> {
   @override
   void initState() { 
     super.initState();
-    checkLoginStatus();
+   checkLoginStatus();
   }
     
 
@@ -37,7 +37,7 @@ class _LogoutState extends State<Logout> {
      },
         child: CircleAvatar(
                 radius: 20.0,
-                backgroundColor: Colors.orange,
+                backgroundColor: Color(0xFFEB0EC29E),
                 child: Image(image: AssetImage('assets/images/logo1.png'),)
       ),
    );

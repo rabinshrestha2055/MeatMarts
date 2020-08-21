@@ -25,7 +25,7 @@ class _CategoryListState extends State<CategoryList> {
   var product_list=[
         {
           "image":"assets/category_list/boka.png",
-          "text":"खसी/बाख्रो",
+          "text":"खसी/बाख्रो"   ,
           "title_text":"खसीको प्रजाति"
         },
           {
@@ -75,12 +75,60 @@ class _CategoryListState extends State<CategoryList> {
                 }
                 });
               },
-                          child: CategoryNameList(
-                  
-                  cat_image: product_list[index]["image"],
-                  cat_title: product_list[index]["text"],
-                  cat_text_title: product_list[index]["title_text"],
-                ),
+                          child: Stack(
+    children: <Widget>[
+      Positioned(
+        top: 35.0,
+       child: Container(
+           margin: EdgeInsets.only(left:10,right: 10),
+          height: 90,
+          width: 160,
+      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10.0),
+      border:Border.all(color: Colors.black26,style: BorderStyle.solid),
+         boxShadow: [
+          BoxShadow(
+             color: Colors.black26,
+             offset: Offset(0.0,1.0)
+          ),
+         ]
+      ),
+      child: Column(
+          
+         mainAxisAlignment: MainAxisAlignment.end,//vertical alignment
+         crossAxisAlignment: CrossAxisAlignment.center,//horizontal alignment
+          children: <Widget>[
+          Text(product_list[index]["text"],textAlign: TextAlign.center,style: TextStyle(color: Colors.black87,fontWeight: FontWeight.w100,fontSize: 20,),softWrap: true,),
+      ],),
+    ),
+      ),
+      Container(
+     margin: EdgeInsets.only(left:10,right: 10),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      border:Border.all(color: Colors.black26,style: BorderStyle.solid),
+      borderRadius: BorderRadius.circular(5),
+      boxShadow: [
+        BoxShadow(
+           color: Colors.black26,
+           offset: Offset(0.0,0.5)
+        ),
+      ]
+    ),
+    child: Stack(
+      alignment: Alignment.topCenter,
+      children: <Widget>[
+        Image(
+          width: MediaQuery.of(context).size.width, //160,
+          height: 90,
+          image:AssetImage(product_list[index]["image"]),
+          ),
+       
+      ],
+    ),
+      ),
+    
+    ],
+    ),
             );
             
           },
@@ -95,73 +143,3 @@ class _CategoryListState extends State<CategoryList> {
   }
 }
 
-class CategoryNameList extends StatelessWidget {
-  final cat_image;
-  final cat_title;
-  final cat_text_title;
-  const CategoryNameList({
-    Key key, this.cat_image, this.cat_title, this.cat_text_title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-       
-       
-        child: Stack(
-    children: <Widget>[
-      Positioned(
-            top: 35.0,
-           child: Container(
-             margin: EdgeInsets.only(left:10,right: 10),
-            height: 90,
-            width: 160,
-          decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10.0),
-          border:Border.all(color: Colors.black26,style: BorderStyle.solid),
-           boxShadow: [
-            BoxShadow(
-               color: Colors.black26,
-               offset: Offset(0.0,1.0)
-            ),
-           ]
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,//vertical alignment
-           crossAxisAlignment: CrossAxisAlignment.center,//horizontal alignment
-            children: <Widget>[
-            Text(cat_title,textAlign: TextAlign.center,style: TextStyle(color: Colors.black87,fontWeight: FontWeight.w100,fontSize: 20),),
-          ],),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left:10,right: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border:Border.all(color: Colors.black26,style: BorderStyle.solid),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-               color: Colors.black26,
-               offset: Offset(0.0,1.0)
-            ),
-          ]
-        ),
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: <Widget>[
-            Image(
-              width: 160,
-              height: 90,
-              image:AssetImage(cat_image),
-              ),
-           
-          ],
-        ),
-      ),
-        
-    ],
-        ),
-        
-      );
-  }
-}

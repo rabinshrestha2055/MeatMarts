@@ -14,49 +14,54 @@ class _KukhuraListState extends State<KukhuraList> {
           "image":"assets/khasi_list/hen1.jpg",
           "description":"Bara ko pure local kukhura bikrimaa cha kinna icukharuly samparka rakhunu hola chado vanda chado...",
           "title_text":"Kukhura on sale",
-          "weight":"3kg",
+          "weight":"3",
           "name":"Ashish Dahal",
-          "date":"2076/5/17",
            "price":"1900",
            "location":"simara,bara",
-           "age":"2",
-           "number":"9807150500"
+           "color":"red",
+           "number":"9807150500",
+           "snumber":"9813209014",
+           "date":"2020-07-27"
         },
           {
           "image":"assets/khasi_list/hen3.jpg",
           "description":"Sarlahi ko pure local kukhura bikrimaa cha kinna icukharuly samparka rakhunu hola chado vanda chado...",
           "title_text":"Kukhura on sale",
-          "weight":"3kg",
+          "weight":"3",
           "name":"Gagan puri",
-          "date":"2076/5/17",
            "price":"1500",
            "location":"lalbandi,sarlahi",
             "age":"2",
-           "number":"9807150500"
+           "number":"9807150500",
+           "snumber":"9813209014",
+           "date":"2020-07-27"
         },
           {
          "image":"assets/khasi_list/hen4.jpeg",
           "description":"Kathmandu ko pure local kukhura bikrimaa cha kinna icukharuly samparka rakhunu hola chado vanda chado...",
           "title_text":"Kukhura on sale",
-          "weight":"4kg",
+          "weight":"4",
           "name":"Nishan upreti",
           "date":"2076/5/17",
            "price":"2000",
            "location":"Balaju,Ktm",
-            "age":"2",
-           "number":"9807150500"
+          "age":"2",
+           "number":"9807150500",
+           "snumber":"9813209014",
+          
         },
           {
            "image":"assets/khasi_list/hen5.jpg",
           "description":"Nakhu ko pure local kukhura bikrimaa cha kinna icukharuly samparka rakhunu hola chado vanda chado...",
           "title_text":"Kukhura on sale",
-          "weight":"4kg",
+          "weight":"4",
           "name":"Manish Regmi",
-          "date":"2076/5/17",
            "price":"5000",
            "location":"nakhu,lalitpur",
             "age":"2",
-           "number":"9807150500"
+           "number":"9807150500",
+           "snumber":"9813209014",
+           "date":"2020-07-27"
         },
          
   ];
@@ -95,8 +100,11 @@ class ListViewItem extends StatefulWidget {
   final list_location;
   final list_age;
   final list_number;
+  final list_snumber;
 
-  ListViewItem({Key key, this.list_image, this.list_description, this.list_title_text, this.list_weight, this.list_name, this.list_date, this.list_price, this.list_location, this.list_age, this.list_number}) : super(key: key);
+
+  
+  ListViewItem({Key key, this.list_image, this.list_description, this.list_title_text, this.list_weight, this.list_name, this.list_date, this.list_price, this.list_location, this.list_age, this.list_number,this.list_snumber}) : super(key: key);
   @override
   _ListViewItemState createState() => _ListViewItemState();
 }
@@ -114,20 +122,24 @@ class _ListViewItemState extends State<ListViewItem> {
             price_details: widget.list_price,
             description_details: widget.list_description,
             name_details: widget.list_name,
+            daat_details: null,
+            color_details: "red",
             location_details: widget.list_location,
             date_details: widget.list_date,
             age_details: widget.list_age,
-            number_details: widget.list_number,
+            pnumber_details: widget.list_number,
+            snumber_details: widget.list_snumber,
           ),));
         });
       },
           child: Stack( 
+
         children: <Widget>[
           // box height,width,margin and decoration
          
           Container(
         
-            margin: EdgeInsets.fromLTRB(12.0, 0.0, 10.0, 5.0),
+            margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
             height: 145.0,
             width: double.infinity,
             decoration: BoxDecoration(

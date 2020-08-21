@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 class DealList extends StatelessWidget {
-  final List<String> _listItem=[
-
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

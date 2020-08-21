@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class FormFields extends StatefulWidget {
     final int age;
     final String khasiImage;
   FormFields({Key key, this.id,  this.title, this.category, this.shortDescription, this.estimatedWeight, this.price, this.color, this.daat, this.ownerName, this.address, this.primaryContactNo, this.secondaryContactNo, this.age, this.khasiImage}) : super(key: key);
-bool _isApiProcess=false;
+
   @override
   _FormFieldsState createState() => _FormFieldsState();
 }
@@ -32,6 +32,7 @@ bool _isApiProcess=false;
 class _FormFieldsState extends State<FormFields> {
   @override
   void initState() {
+    _currentCategorySelected=_catrgory[0];
     titleController.text=widget.title;
     descriptionController.text=widget.shortDescription;
     weightController.text=widget.estimatedWeight==null?"":  widget.estimatedWeight.toString();
@@ -45,7 +46,6 @@ class _FormFieldsState extends State<FormFields> {
     ageController.text=widget.age==null?"": widget.age.toString();
   //  _image=widget.khasiImage as File;
 
-    // TODO: implement initState
     super.initState();
   }
   final GlobalKey<FormState> _formKey=GlobalKey<FormState>();
@@ -61,13 +61,14 @@ class _FormFieldsState extends State<FormFields> {
  final TextEditingController secondaryContactController=TextEditingController();
  final TextEditingController ageController=TextEditingController();
  
-   File _image;
+   PickedFile _image;
+   final ImagePicker _picker=ImagePicker();
   var _catrgory=['Select Category','Khasi','Boka','Raga','Kukhura','Birds','Vakal','Anya'];
-  var _currentCategorySelected="Select Category";
+  var _currentCategorySelected="";
     Widget _buildCategory(){
     return Container(
       height: 60,
-      
+      padding: EdgeInsets.only(left:20,right: 50,top: 5),
       width: MediaQuery.of(context).size.width,
        decoration: BoxDecoration(
           color: Colors.white12,
@@ -99,17 +100,61 @@ class _FormFieldsState extends State<FormFields> {
       ),
     );
   }
+  void takePhoto(ImageSource source)async{
+    final pickedFile=await _picker.getImage(
+      source: source,
+      );
+      setState(() {
+        _image=pickedFile;
+      });
+  }
   Widget _Image(){
     return Image(
-    image:_image!=null?FileImage(_image): AssetImage('assets/images/noimage.png',),width: 300,height: 200,
+    image:_image!=null?FileImage(File(_image.path)): AssetImage('assets/images/noimage.png',),width: 300,height: 200,
     );
   }
-   void PickImage() async {
-    // ignore: deprecated_member_use
-    var image=await ImagePicker.pickImage(source: ImageSource.gallery);
-    setState(() {
-    _image=image;
-    });
+   Widget PickImage()  {
+     return Container(
+       height: 100,
+       width: MediaQuery.of(context).size.width,
+       margin: EdgeInsets.symmetric(
+         horizontal: 20,
+         vertical: 20,
+       ),
+       child: Column(
+         children: [
+           Text('Choose Image',
+           style: TextStyle(
+             fontSize: 20.0,
+
+           ),
+           ),
+           SizedBox(height: 20.0,),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlatButton.icon(
+                onPressed: (){
+                  takePhoto(ImageSource.camera);
+                }, 
+                icon: Icon(Icons.camera), 
+                label: Text('Camera'),
+                ),
+                FlatButton.icon(
+                onPressed: (){
+                  takePhoto(ImageSource.gallery);
+                }, 
+                icon: Icon(Icons.image), 
+                label: Text('Gallery'),
+                ),
+            ],
+             
+             )
+           
+         ],
+       ),
+     );
+    
     }
   @override
   Widget build(BuildContext context) {
@@ -133,7 +178,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.title,
-                           color: Colors.green,
+                          // color: Colors.green,
                          ),
                          labelText: "Title",
                          helperText: "Title can't be empty",
@@ -164,13 +209,13 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.description,
-                           color: Colors.green,
+                         //  color: Colors.green,
                          ),
                          labelText: "Short-Description",
                          helperText: "Short-Description can't be empty",
                          hintText: "Short-Description"
                        ),
-                     validator: (String value){
+                        validator: (String value){
                          if(value.isEmpty){
                            return 'Short_Description is Required';
                               }
@@ -181,8 +226,15 @@ class _FormFieldsState extends State<FormFields> {
                    SizedBox(height: 10,),
                     Center(
                      child: RaisedButton(
-                      child: Text('CHOOSE IMAGE'),
-                      onPressed: PickImage,
+                       color: Color(0xFFEB0EC29E),
+                      child: Text('CHOOSE IMAGE',style: TextStyle(color: Colors.white),),
+                      onPressed: ()
+                      {
+                      showBottomSheet(
+                        context: context, 
+                        builder: (context) => PickImage(),
+                        );
+                      }
                      ),
                    ),
                     SizedBox(height: 10,),
@@ -195,7 +247,8 @@ class _FormFieldsState extends State<FormFields> {
                            width: 2.0
                             )
                          ),
-                         prefixIcon: Image(image: AssetImage('assets/images/weight.png'),color: Colors.green,),
+                         prefixIcon: Image(image: AssetImage('assets/images/weight.png'),
+                         color: Colors.black54,),
                          labelText: "Weight",
                          helperText: "Weight can't be empty",
                          hintText: "Weight"
@@ -216,7 +269,7 @@ class _FormFieldsState extends State<FormFields> {
                            width: 2.0
                             )
                          ),
-                         prefixIcon: Image(image: AssetImage('assets/images/price.png'),color: Colors.green,),
+                         prefixIcon: Image(image: AssetImage('assets/images/price.png'),color: Colors.black54,),
                          labelText: "Price",
                          helperText: "Price can't be empty",
                          hintText: "Price"
@@ -239,7 +292,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.color_lens,
-                           color: Colors.green,
+                         //  color: Colors.green,
                          ),
                          labelText: "Color",
                          helperText: "Color can't be empty",
@@ -261,7 +314,7 @@ class _FormFieldsState extends State<FormFields> {
                            width: 2.0
                             )
                          ),
-                         prefixIcon: Image(image: AssetImage('assets/images/tooth.png'),color: Colors.green,),
+                         prefixIcon: Image(image: AssetImage('assets/images/tooth.png'),color: Colors.black54,),
                          labelText: "Satiyako-Daat",
                          helperText: "Satiyako-Daatcan't be empty",
                          hintText: "Satiyako-Daat"
@@ -282,7 +335,7 @@ class _FormFieldsState extends State<FormFields> {
                            width: 2.0
                             )
                          ),
-                         prefixIcon: Image(image: AssetImage('assets/images/name.png'),color: Colors.green,),
+                         prefixIcon: Image(image: AssetImage('assets/images/name.png'),color: Colors.black54,),
                          labelText: "Name",
                          helperText: "Name can't be empty",
                          hintText: "Name"
@@ -305,7 +358,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.location_city,
-                           color: Colors.green,
+                          // color: Colors.green,
                          ),
                          labelText: "Address",
                          helperText: "Address can't be empty",
@@ -329,7 +382,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.phone,
-                           color: Colors.green,
+                        //   color: Colors.green,
                          ),
                          labelText: "Primary-Number",
                          helperText: "Primary-Number can't be empty",
@@ -344,6 +397,7 @@ class _FormFieldsState extends State<FormFields> {
                      SizedBox(height: 10,),
                      TextFormField(
                        controller: secondaryContactController,
+                       validator: null,
                        keyboardType: TextInputType.number,
                      decoration: InputDecoration(
                        border: OutlineInputBorder(
@@ -353,7 +407,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.phone_android,
-                           color: Colors.green,
+                       //    color: Colors.green,
                          ),
                          labelText: "Secondary-Number",
                          helperText: "Secondary-Number is optional",
@@ -372,7 +426,7 @@ class _FormFieldsState extends State<FormFields> {
                          ),
                          prefixIcon: Icon(
                            Icons.access_time,
-                           color: Colors.green,
+                          // color: Colors.green,
                          ),
                          labelText: "Age",
                          helperText: "Age can't be empty",
@@ -387,9 +441,13 @@ class _FormFieldsState extends State<FormFields> {
                   SizedBox(height: 10,),
                   widget.id==null? Center(
                     child: RaisedButton(
-                       child: Text("Submit"),
+                      color: Color(0xFFEB0EC29E),
+                       child: Text("Submit",style: TextStyle(color: Colors.white),),
                      onPressed: (){
-                         String inputtitle=titleController.text;
+                       
+                        setState(() {
+                        if(_formKey.currentState.validate()){
+                        String inputtitle=titleController.text;
                         String inputcategory=_currentCategorySelected.toString();
                         String desc=descriptionController.text;
                         int weight=int.parse(weightController.text.toString());
@@ -402,8 +460,8 @@ class _FormFieldsState extends State<FormFields> {
                         int contactNo=int.parse(secondaryContactController.text.toString());
                         int inputage=int.parse(ageController.text.toString());
                         String inputkhasiImage= _image.path;
-                        setState(() {
                           //  widget._isApiProcess=true;
+                         
                           KhasiModel khasiModel=KhasiModel(
                             
                             title: inputtitle,
@@ -441,16 +499,17 @@ class _FormFieldsState extends State<FormFields> {
 
                             }
                           }).catchError((error)=>print(error));
+                        }
                         });
-                        if(!_formKey.currentState.validate()){
-                          return;
-                         }
-                      _formKey.currentState.save();
+                        
+                          
+                      
                      },
                      ),
                   ):Center(
                     child: RaisedButton(
-                       child: Text("Edit"),
+                      color: Color(0xFFEB0EC29E),
+                       child: Text("Edit",style: TextStyle(color: Colors.white),),
                        onPressed: () {
                          
                         String inputtitle=titleController.text;
@@ -468,7 +527,8 @@ class _FormFieldsState extends State<FormFields> {
                         String inputkhasiImage= _image.path;
                         setState(() {
                           //  widget._isApiProcess=true;
-                          KhasiModel khasiModel=KhasiModel(
+                          if(_formKey.currentState.validate()){
+                           KhasiModel khasiModel=KhasiModel(
                             id: widget.id,
                             title: inputtitle,
                             category: inputcategory,
@@ -505,17 +565,17 @@ class _FormFieldsState extends State<FormFields> {
 
                             }
                           }).catchError((error)=>print(error));
-                        });
-                        if(!_formKey.currentState.validate()){
-                          return;
                          }
-                      _formKey.currentState.save();
+                          
+                        });
+                     
+                      
                        
                      },),
                   ),
            ],
          ),
-                ),
+        ),
        ),
     );
   }
