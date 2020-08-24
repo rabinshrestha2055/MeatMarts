@@ -1,13 +1,9 @@
-import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:masu_bazar/model/dialog.dart';
 import 'package:masu_bazar/model/error_dialog.dart';
 import 'package:masu_bazar/model/http_model.dart';
 import 'package:masu_bazar/model/user_model.dart';
-import 'package:masu_bazar/pages/home_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart'as http;
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
   
@@ -240,7 +236,7 @@ Container headerSection(){
      padding: EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
      child: Column(
        children: [
-         Image.asset('assets/images/meatmart.png',width: 200,height: 200,),
+         Image.asset('assets/images/meatmart1.png',width: 200,height: 200,),
        ],
      ),
      

@@ -37,7 +37,7 @@ class KukhuraTabList extends StatelessWidget {
            child: Column(
              children: <Widget>[
                Container(
-                 constraints: BoxConstraints.expand(height:60),
+                 constraints: BoxConstraints.expand(height:63),
                  margin: EdgeInsets.only(left: 0.5,right: 0.5),
                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Color(0xFFEB0EC29E),style: BorderStyle.solid),
@@ -56,8 +56,9 @@ class KukhuraTabList extends StatelessWidget {
                 return Container(
                  margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: Tab(
+                 iconMargin: EdgeInsets.only(top:2),
                text: choice.title,
-               icon: Icon(choice.icon),
+               icon: choice.image,
                     ),
                 );
               }
@@ -77,17 +78,18 @@ class KukhuraTabList extends StatelessWidget {
 }
 class Choice{
   final String title ;
-  final IconData icon;
+    final Image image;
 
-  Choice({this.title, this.icon});
+
+  Choice({this.title, this.image});
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'लोकल',icon: null),
-  Choice(title: 'फार्म जातका',icon: null),
-  Choice(title: 'हाँस',icon: null),
-  Choice(title: 'लौकाट',icon: null),
-  Choice(title: 'बटाई',icon: null),
-  Choice(title: 'टर्की',icon: null),
-  Choice(title: 'fancy कुखुरा',icon: null),
+  Choice(title: 'लोकल',image: Image(image: AssetImage('assets/images/hen1.png'),width: 20,height: 20,)),
+  Choice(title: 'फार्म जातका',image:Image(image: AssetImage('assets/images/farm.png'),width: 25,height: 25,) ),
+  Choice(title: 'हाँस',image: Image(image: AssetImage('assets/images/duck.jpg'),width: 30,height: 26,)),
+  Choice(title: 'लौकाट',image: Image(image: AssetImage('assets/images/laukat.jpg'),width: 30,height: 30,)),
+  Choice(title: 'बटाई',image: Image(image: AssetImage('assets/images/batai.png'),width: 30,height: 30,)),
+  Choice(title: 'टर्की',image: Image(image: AssetImage('assets/images/tarki.png'),width: 30,height: 30,)),
+  Choice(title: 'fancy कुखुरा',image: Image(image: AssetImage('assets/images/fancy.png'),width: 25,height: 25,)),
 ];

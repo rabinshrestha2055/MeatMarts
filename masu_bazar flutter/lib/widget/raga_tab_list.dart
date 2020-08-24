@@ -3,9 +3,15 @@ import 'package:masu_bazar/pages/screens/appbar.dart';
 class RagaTabList extends StatelessWidget {
   final title;
   List <Widget> containers=[
-  
+  Center(
+     child: Text('गाई'),
+   ),
    Center(
      child: Text('भैंसी'),
+   ),
+  
+      Center(
+     child: Text('गोरू'),
    ),
      Center(
      child: Text('राँगा'),
@@ -26,7 +32,7 @@ class RagaTabList extends StatelessWidget {
              children: <Widget>[
                Container(
                   margin: EdgeInsets.only(left: 0.5,right: 0.5),
-                 constraints: BoxConstraints.expand(height:60),
+                 constraints: BoxConstraints.expand(height:63),
                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
@@ -45,8 +51,9 @@ class RagaTabList extends StatelessWidget {
                 return Container(
                  margin: EdgeInsets.symmetric(horizontal: 0.0),
                   child: Tab(
+                    iconMargin: EdgeInsets.only(top:2),
                text: choice.title,
-               icon: Icon(choice.icon),
+               icon: choice.image,
                     ),
                 );
               }
@@ -66,13 +73,15 @@ class RagaTabList extends StatelessWidget {
 }
 class Choice{
   final String title ;
-  final IconData icon;
+  final Image image;
 
-  Choice({this.title, this.icon});
+  Choice({this.title, this.image});
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'भैंसी',icon: Icons.directions_car),
-  Choice(title: 'राँगा',icon: Icons.directions_bike),
+  Choice(title: 'गाई',image: Image(image: AssetImage('assets/images/cow.png'),height: 30,width: 30,)),
+  Choice(title: 'भैंसी',image: Image(image: AssetImage('assets/images/bahisi.jpg'),height: 30,width: 30,)),
+  Choice(title: 'गोरू',image: Image(image: AssetImage('assets/images/goru.jpeg'),height: 30,width: 30,)),
+  Choice(title: 'राँगा',image: Image(image: AssetImage('assets/images/rango.png'),height: 30,width: 30,)),
  
 ];

@@ -30,7 +30,7 @@ class VakalTabList extends StatelessWidget {
              children: <Widget>[
                Container(
                   margin: EdgeInsets.only(left: 0.5,right: 0.5),
-                 constraints: BoxConstraints.expand(height:60),
+                 constraints: BoxConstraints.expand(height:63),
                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
@@ -46,10 +46,10 @@ class VakalTabList extends StatelessWidget {
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs:choices.map<Widget>((Choice choice){
                 return Container(
-                 margin: EdgeInsets.symmetric(horizontal: 15.0),
+                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: Tab(
                text: choice.title,
-               icon: Icon(choice.icon),
+               icon:choice.image,
                     ),
                 );
               }
@@ -69,14 +69,14 @@ class VakalTabList extends StatelessWidget {
 }
 class Choice{
   final String title ;
-  final IconData icon;
+  final Image image;
 
-  Choice({this.title, this.icon});
+  Choice({this.title, this.image});
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'कालो बोका',icon: Icons.directions_car),
-  Choice(title: 'परेवा',icon: Icons.directions_bike),
-  Choice(title: 'अन्य',icon: Icons.directions_bus),
+  Choice(title: 'कालो बोका',image: Image(image: AssetImage('assets/images/kaloboka.png'),height: 30,width: 30,)),
+  Choice(title: 'परेवा',image: Image(image: AssetImage('assets/images/pigeon.png'),height: 30,width: 30,)),
+  Choice(title: 'अन्य',image:Image(image: AssetImage('assets/category_list/pboka.png'),height: 30,width: 30,)),
 
 ];

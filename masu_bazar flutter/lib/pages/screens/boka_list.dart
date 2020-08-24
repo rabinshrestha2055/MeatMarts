@@ -33,8 +33,6 @@ class _BokaListState extends State<BokaList> {
               // box height,width,margin and decoration
               Container(
                 margin: EdgeInsets.fromLTRB(12.0, 5.0, 10.0, 5.0),
-                height: 145.0,
-                width: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black12,),
                   color: Colors.white,
@@ -79,10 +77,10 @@ class _BokaListState extends State<BokaList> {
             Row(
                       children:<Widget>[
             //date
-            Text(listItem.date.toString().split(" ")[0], style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),),
-            SizedBox(width: 80,),
+            Expanded(child: Text(listItem.date.toString().split(" ")[0], style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),)),
+         
             //price
-            Text("Rs."+listItem.price.toString(), style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),),
+            Expanded(child: Text("Rs."+listItem.price.toString(), style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),)),
                      
 
                       ],

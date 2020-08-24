@@ -14,10 +14,6 @@ class AnyaTabList extends StatelessWidget {
    Center(
      child: Text('कुकुर'),
    ),
-  
-      Center(
-     child: Text('गोरू'),
-   ),
       Center(
      child: Text('घोडा'),
    ),
@@ -39,7 +35,7 @@ class AnyaTabList extends StatelessWidget {
              children: <Widget>[
                Container(
                   margin: EdgeInsets.only(left: 0.5,right: 0.5),
-                 constraints: BoxConstraints.expand(height:60),
+                 constraints: BoxConstraints.expand(height:63),
                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
@@ -58,7 +54,7 @@ class AnyaTabList extends StatelessWidget {
                  margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: Tab(
                text: choice.title,
-               icon: Icon(choice.icon),
+               icon: choice.image,
                     ),
                 );
               }
@@ -78,17 +74,16 @@ class AnyaTabList extends StatelessWidget {
 }
 class Choice{
   final String title ;
-  final IconData icon;
+  final Image image;
 
-  Choice({this.title, this.icon});
+  Choice({this.title, this.image});
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'सुँगुर/बदेल',icon: Icons.directions_car),
-  Choice(title: 'खरायो',icon: Icons.directions_bike),
-  Choice(title: 'कुकुर',icon: Icons.directions_bus),
-  Choice(title: 'गोरू',icon: Icons.directions_railway),
-  Choice(title: 'घोडा',icon: Icons.directions_walk),
-    Choice(title: 'अन्य',icon: Icons.directions_railway),
+  Choice(title: 'सुँगुर/बदेल',image: Image(image: AssetImage('assets/images/boar.png'),height: 30,width: 30,)),
+  Choice(title: 'खरायो',image: Image(image: AssetImage('assets/images/rabbit.png'),height: 25,width: 30,)),
+  Choice(title: 'कुकुर',image: Image(image: AssetImage('assets/images/dog.png'),height: 30,width: 30,)),
+  Choice(title: 'घोडा',image: Image(image: AssetImage('assets/images/horse.png'),height: 30,width: 30,)),
+    Choice(title: 'अन्य',image: Image(image: AssetImage('assets/images/anya.png'),height: 30,width: 30,)),
   
 ];

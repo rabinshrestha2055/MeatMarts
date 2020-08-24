@@ -30,8 +30,8 @@ class _CategoryListState extends State<CategoryList> {
         },
           {
           "image":"assets/category_list/mura.png",
-          "text":"भैंसी/रांगो",
-          "title_text":"राँगाको प्रजाति"
+          "text":"गाई/भैंसी",
+          "title_text":"गाई/भैंसीको प्रजाति"
         },
           {
           "image":"assets/category_list/chicken.png",

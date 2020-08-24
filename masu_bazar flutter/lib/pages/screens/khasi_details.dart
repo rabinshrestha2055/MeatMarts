@@ -44,10 +44,10 @@ class _DetailsState extends State<Details> {
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
                  Container(
-                   padding: EdgeInsets.only(top: 13.0,left: 40.0),
+                   padding: EdgeInsets.only(top: 13.0,left: 20.0),
                    height: 50,
-                   width: 150.5,
-                   child: Text('Weight = '+widget.weight_details.toString()+" kg",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+                   width: 160.5,
+                   child: Text('Weight='+widget.weight_details.toString()+" kg",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
                    margin: EdgeInsets.only(left: 5.0),
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.only(topLeft:Radius.circular(10.0) ,bottomLeft: Radius.circular(10.0)),
@@ -78,7 +78,7 @@ class _DetailsState extends State<Details> {
                      ]
                    ),
                    height: 50,
-                   width: 150.5,
+                   width: 160.5,
                    child: Text('Rs.'+widget.price_details.toString(),style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
                  ),
                ],
@@ -173,6 +173,7 @@ class _DetailsState extends State<Details> {
                  ],
                ),
              ),
+             SizedBox(height: 5,)
             
       ],
       ),

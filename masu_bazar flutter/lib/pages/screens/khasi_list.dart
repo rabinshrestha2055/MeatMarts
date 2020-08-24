@@ -59,8 +59,6 @@ class _KhasiListState extends State<KhasiList> {
               // box height,width,margin and decoration
               Container(
                 margin: EdgeInsets.fromLTRB(12.0, 5.0, 10.0, 5.0),
-                height: 145.0,
-                width: double.infinity,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black12,),
                     color: Colors.white,

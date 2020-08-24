@@ -49,8 +49,9 @@ class BirdTabList extends StatelessWidget {
                 return Container(
                  margin: EdgeInsets.symmetric(horizontal: 13.0),
                   child: Tab(
+                iconMargin: EdgeInsets.only(top:2),
                text: choice.title,
-               icon: Icon(choice.icon),
+               icon: choice.image,
                     ),
                 );
               }
@@ -70,15 +71,15 @@ class BirdTabList extends StatelessWidget {
 }
 class Choice{
   final String title ;
-  final IconData icon;
+  final Image image;
 
-  Choice({this.title, this.icon});
+  Choice({this.title, this.image});
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'परेवा',icon: Icons.directions_car),
-  Choice(title: 'सुगा',icon: Icons.directions_bike),
-  Choice(title: 'love Birds',icon: Icons.directions_bus),
-  Choice(title: 'अन्य',icon: Icons.directions_railway),
+  Choice(title: 'परेवा',image: Image(image: AssetImage('assets/images/pigeon.png'),height: 25,width: 25,)),
+  Choice(title: 'सुगा',image: Image(image: AssetImage('assets/images/parrot.png'),height: 28,width: 28,)),
+  Choice(title: 'love Birds',image: Image(image: AssetImage('assets/images/lovebirds.png'),height: 30,width: 30,)),
+  Choice(title: 'अन्य',image: Image(image: AssetImage('assets/images/anya.jpg'),height: 28,width: 28,)),
  
 ];

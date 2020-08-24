@@ -216,7 +216,7 @@ Container headerSection(){
      padding: EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
      child: Column(
        children: [
-         Image.asset('assets/images/meatmart.png',width: 200,height: 200,),
+         Image.asset('assets/images/meatmart1.png',width: 200,height: 200,),
        ],
      ),
      

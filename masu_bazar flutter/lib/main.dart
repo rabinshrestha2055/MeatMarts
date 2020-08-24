@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/pages/home_page.dart';
 import 'package:masu_bazar/pages/introduction_page/intro_screen.dart';
 import 'package:masu_bazar/pages/screens/login.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFFF3F5F7),
        // primarySwatch: Colors.blue
       ),
-      home:IntroScreen(),
+      home:HomePage()//IntroScreen(),
     );
   }
 }

@@ -32,7 +32,7 @@ class KhasiTabList extends StatelessWidget {
              children: <Widget>[
                Container(
                   margin: EdgeInsets.only(left: 0.5,right: 0.5),
-                 constraints: BoxConstraints.expand(height:60),
+                constraints: BoxConstraints.expand(height:63),
                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
                 border:Border.all(color: Colors.black54,style: BorderStyle.solid),
                  boxShadow: [
@@ -43,13 +43,16 @@ class KhasiTabList extends StatelessWidget {
                  ]
                 ),
                  child: TabBar(
+                   
                 isScrollable: true,
                 indicatorColor: Colors.black,
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs:choices.map<Widget>((Choice choice){
                 return Container(
-                 margin: EdgeInsets.symmetric(horizontal: 10.0),
+                  
+                 margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 3),
                   child: Tab(
+                    iconMargin: EdgeInsets.only(top:2),
                text: choice.title,
                icon: choice.image,
                
@@ -78,9 +81,9 @@ class Choice{
   
 }
 List<Choice> choices=<Choice>[
-  Choice(title: 'खसी',image: Image(image: AssetImage('assets/images/khasi.png'),)),
-  Choice(title: 'बोका',image: Image(image: AssetImage('assets/images/goat.png'),)),
-  Choice(title: 'बाख्रा',image: Image(image: AssetImage('assets/images/bakhri.png'),)),
-  Choice(title: 'च्यांग्रा',image: Image(image: AssetImage('assets/images/changra.png'),)),
-  Choice(title: 'भेडा',image: Image(image: AssetImage('assets/images/sheep.png'),)),
+  Choice(title: 'खसी',image: Image(image: AssetImage('assets/images/khasi.png'),height: 25,width: 25,)),
+  Choice(title: 'बोका',image: Image(image: AssetImage('assets/images/boka.png'),height: 25,width: 25,)),
+  Choice(title: 'बाख्रा',image: Image(image: AssetImage('assets/images/bakhri.png'),height: 30,width: 30,)),
+  Choice(title: 'च्यांग्रा',image: Image(image: AssetImage('assets/images/changra.png'),height: 30,width: 30,)),
+  Choice(title: 'भेडा',image: Image(image: AssetImage('assets/images/sheep.png'),height: 30,width: 30,)),
 ];

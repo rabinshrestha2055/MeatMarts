@@ -138,10 +138,7 @@ class _ListViewItemState extends State<ListViewItem> {
           // box height,width,margin and decoration
          
           Container(
-        
             margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-            height: 145.0,
-            width: double.infinity,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black12,),
               color: Colors.white,
@@ -184,9 +181,9 @@ class _ListViewItemState extends State<ListViewItem> {
                   SizedBox(height: 1.0,),
                     Row(
                   children:<Widget>[
-                    Text(widget.list_date, style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),),
-                    SizedBox(width: 80,),
-                    Text("Rs."+widget.list_price, style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),),
+                    Expanded(child: Text(widget.list_date, style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),)),
+          
+                    Expanded(child: Text("Rs."+widget.list_price, style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),)),
                  
 
                   ],

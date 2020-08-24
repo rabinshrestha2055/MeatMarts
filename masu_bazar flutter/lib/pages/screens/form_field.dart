@@ -459,7 +459,7 @@ class _FormFieldsState extends State<FormFields> {
                         int phnNo=int.parse(primaryContactController.text.toString());
                         int contactNo=int.parse(secondaryContactController.text.toString());
                         int inputage=int.parse(ageController.text.toString());
-                        String inputkhasiImage= _image.path;
+                         String inputkhasiImage= _image.path;
                           //  widget._isApiProcess=true;
                          
                           KhasiModel khasiModel=KhasiModel(
@@ -476,7 +476,7 @@ class _FormFieldsState extends State<FormFields> {
                             primaryContactNo: phnNo,
                             secondaryContactNo: contactNo,
                             age:inputage,
-                            khasiImage: inputkhasiImage,
+                           khasiImage: inputkhasiImage,
                              
 
                           );
